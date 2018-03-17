@@ -5,7 +5,10 @@ export default class YoutubeAPI {
     }
 
     this.apiKey = options.apiKey;
+    this.apiUrl = 'https://www.googleapis.com/youtube/v3';
   }
 
-  getSearchResultsFor() {}
+  getSearchResultsFor(query) {
+    return fetch(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`);
+  }
 }

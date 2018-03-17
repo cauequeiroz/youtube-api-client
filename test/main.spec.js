@@ -1,7 +1,19 @@
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import fetch from 'node-fetch';
 import YoutubeAPI from '../src/main';
 
-describe('Main', () => {
+/*  Initial setup
+----------------------------------------------------------------------------------------- */
+
+chai.use(sinonChai);
+global.fetch = fetch;
+
+/*  Tests :)
+----------------------------------------------------------------------------------------- */
+
+describe('YoutubeAPI', () => {
 
   describe('Smoke Tests', () => {
 
@@ -24,6 +36,31 @@ describe('Main', () => {
       expect(() => new YoutubeAPI()).to.throw('You need to pass an `apiKey` to the class constructor.');
     });
 
+  });
+
+  describe('getSearchResultsFor', () => {
+
+    let stubedFetch;
+    let youtube;
+
+    beforeEach(() => {
+      stubedFetch = sinon.stub(global, 'fetch');
+      youtube = new YoutubeAPI({ apiKey: 'foo' });
+    });
+
+    afterEach(() => {
+      stubedFetch.restore();
+    });
+
+    it('should call the fetch function', () => {
+      youtube.getSearchResultsFor();
+      expect(stubedFetch).to.have.been.calledOnce;
+    });
+
+    it('should call the fetch function with the right url', () => {
+      youtube.getSearchResultsFor('Paramore');
+      expect(stubedFetch).to.have.been.calledWith('https://www.googleapis.com/youtube/v3/search?part=snippet&key=foo&q=Paramore');
+    });
   });
 
 });
