@@ -1,2 +1,4 @@
 test/
 mock/
+dist/
+webpack.config.babel.js
