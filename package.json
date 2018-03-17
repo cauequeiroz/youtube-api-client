@@ -12,7 +12,8 @@
     "test": "./node_modules/.bin/mocha test/**/*.spec.js --require babel-register",
     "test:tdd": "npm run test -- --watch",
     "test:coverage": "nyc npm test",
-    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "npm run test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "prepush": "npm run lint && npm run test:coverage"
   },
   "nyc": {
     "reporter": [
@@ -51,6 +52,7 @@
     "eslint": "^4.19.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
+    "husky": "^0.14.3",
     "mocha": "^5.0.4",
     "node-fetch": "^2.1.1",
     "nyc": "^11.6.0",
