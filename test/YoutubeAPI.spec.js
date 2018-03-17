@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import sinonStubPromise from 'sinon-stub-promise';
 import fetch from 'node-fetch';
-import YoutubeAPI from '../src/main';
+import YoutubeAPI from '../src/YoutubeAPI';
 
 /*  Initial setup
 ----------------------------------------------------------------------------------------- */
