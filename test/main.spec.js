@@ -19,23 +19,26 @@ describe('YoutubeAPI', () => {
 
   describe('Smoke Tests', () => {
 
+    let youtube;
+
+    beforeEach(() => {
+      youtube = new YoutubeAPI({ apiKey: 'foo' });
+    });
+
     it('should create an instance of YoutubeAPI', () => {
-      const youtube = new YoutubeAPI({ apiKey: 'foo' });
       expect(youtube).to.be.an.instanceof(YoutubeAPI);
     });
 
-    it('should have a method `getSearchResultsFor`', () => {
-      const youtube = new YoutubeAPI({ apiKey: 'foo' });
-      expect(youtube.getSearchResultsFor).to.exist;
-    });
-
     it('should recieve an `apiKey`', () => {
-      const youtube = new YoutubeAPI({ apiKey: 'foo' });
       expect(youtube.apiKey).to.be.equal('foo');
     });
 
     it('should throw an error when there is no `apiKey`', () => {
       expect(() => new YoutubeAPI()).to.throw('You need to pass an `apiKey` to the class constructor.');
+    });
+
+    it('should have a method `getSearchResultsFor`', () => {
+      expect(youtube.getSearchResultsFor).to.exist;
     });
 
   });
@@ -66,16 +69,6 @@ describe('YoutubeAPI', () => {
       expect(stubedFetch).to.have.been.calledWith('https://www.googleapis.com/youtube/v3/search?part=snippet&key=foo&q=Paramore');
     });
 
-    it('should return a json from Promise', () => {
-      const expectedResult = {
-        foo: 'bar'
-      };
-
-      promise.resolves({ json: () => expectedResult });
-
-      const request = youtube.getSearchResultsFor('Paramore');
-      expect(request.resolveValue).to.be.eql({ foo: 'bar' });
-    })
   });
 
 });

@@ -1,3 +1,5 @@
+import HttpRequest from './HttpRequest';
+
 export default class YoutubeAPI {
   constructor(options) {
     if (options === undefined || options.apiKey === undefined) {
@@ -9,7 +11,8 @@ export default class YoutubeAPI {
   }
 
   getSearchResultsFor(query) {
-    return fetch(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`)
-      .then(result => result.json());
+    const result = HttpRequest.to(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`);
+
+    return result;
   }
 }
