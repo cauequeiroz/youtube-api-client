@@ -13,7 +13,7 @@ export default class YoutubeAPI {
       id: raw.id.videoId,
       title: raw.snippet.title,
       description: raw.snippet.description,
-      thumbnail: raw.snippet.thumbnails.high.url
+      thumbnail: raw.snippet.thumbnails.high.url,
     });
 
     return HttpRequest
