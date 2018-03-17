@@ -1,0 +1,78 @@
+{
+ "kind": "youtube#searchListResponse",
+ "etag": "\"RmznBCICv9YtgWaaa_nWDIH1_GM/5LkWLGnr0dJoU76wQ8P729eY1uk\"",
+ "nextPageToken": "CAUQAA",
+ "regionCode": "BR",
+ "pageInfo": {
+  "totalResults": 1000000,
+  "resultsPerPage": 5
+ },
+ "items": [
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"RmznBCICv9YtgWaaa_nWDIH1_GM/Ve8lwpIeFK8VNX9Lrib0hiM9q9U\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "cW5ueE2vUm0"
+   },
+   "snippet": {
+    "publishedAt": "2018-02-05T21:00:07.000Z",
+    "channelId": "UClVrJwcIy7saPcGc1nct80A",
+    "title": "Paramore: Rose-Colored Boy [OFFICIAL VIDEO]",
+    "description": "We're doing it LIVE! Get tickets to The After Laughter Summer Tour with Foster The People at http://paramore.net/tour Paramore's music video for 'Rose-Colored Boy' from the album, After Laughter...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/cW5ueE2vUm0/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/cW5ueE2vUm0/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/cW5ueE2vUm0/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Fueled By Ramen",
+    "liveBroadcastContent": "none"
+   }
+  },
+  {
+   "kind": "youtube#searchResult",
+   "etag": "\"RmznBCICv9YtgWaaa_nWDIH1_GM/ZDEEZYHJWIdnbsEs5DzGWW1oVHI\"",
+   "id": {
+    "kind": "youtube#video",
+    "videoId": "AEB6ibtdPZc"
+   },
+   "snippet": {
+    "publishedAt": "2017-04-19T12:06:35.000Z",
+    "channelId": "UClVrJwcIy7saPcGc1nct80A",
+    "title": "Paramore: Hard Times [OFFICIAL VIDEO]",
+    "description": "We're doing it LIVE! Get tickets to The After Laughter Summer Tour with Foster The People at http://paramore.net/tour Paramore's music video for 'Hard Times' from the album, After Laughter...",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/AEB6ibtdPZc/default.jpg",
+      "width": 120,
+      "height": 90
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/AEB6ibtdPZc/mqdefault.jpg",
+      "width": 320,
+      "height": 180
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/AEB6ibtdPZc/hqdefault.jpg",
+      "width": 480,
+      "height": 360
+     }
+    },
+    "channelTitle": "Fueled By Ramen",
+    "liveBroadcastContent": "none"
+   }
+  }
+ ]
+}
