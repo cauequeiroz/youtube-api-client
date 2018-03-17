@@ -16,10 +16,10 @@ export default class YoutubeAPI {
       thumbnail: raw.snippet.thumbnails.high.url,
     });
 
-    return HttpRequest
-      .to(url)
-      .then(result => result.items)
-      .then(items => items.map(item => rawToVideo(item)))
-      .then(videos => ({ videos }));
+    const formatOutput = ({ items }) => ({
+      videos: items.map(rawToVideo),
+    });
+
+    return HttpRequest.to(url).then(formatOutput);
   }
 }
