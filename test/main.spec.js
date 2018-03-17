@@ -1,6 +1,7 @@
 import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
+import sinonStubPromise from 'sinon-stub-promise';
 import fetch from 'node-fetch';
 import YoutubeAPI from '../src/main';
 
@@ -8,6 +9,7 @@ import YoutubeAPI from '../src/main';
 ----------------------------------------------------------------------------------------- */
 
 chai.use(sinonChai);
+sinonStubPromise(sinon);
 global.fetch = fetch;
 
 /*  Tests :)
@@ -41,10 +43,12 @@ describe('YoutubeAPI', () => {
   describe('getSearchResultsFor', () => {
 
     let stubedFetch;
+    let promise;
     let youtube;
 
     beforeEach(() => {
       stubedFetch = sinon.stub(global, 'fetch');
+      promise = stubedFetch.returnsPromise();
       youtube = new YoutubeAPI({ apiKey: 'foo' });
     });
 
@@ -61,6 +65,17 @@ describe('YoutubeAPI', () => {
       youtube.getSearchResultsFor('Paramore');
       expect(stubedFetch).to.have.been.calledWith('https://www.googleapis.com/youtube/v3/search?part=snippet&key=foo&q=Paramore');
     });
+
+    it('should return a json from Promise', () => {
+      const expectedResult = {
+        foo: 'bar'
+      };
+
+      promise.resolves({ json: () => expectedResult });
+
+      const request = youtube.getSearchResultsFor('Paramore');
+      expect(request.resolveValue).to.be.eql({ foo: 'bar' });
+    })
   });
 
 });

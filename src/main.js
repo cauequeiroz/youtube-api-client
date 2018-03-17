@@ -9,6 +9,7 @@ export default class YoutubeAPI {
   }
 
   getSearchResultsFor(query) {
-    return fetch(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`);
+    return fetch(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`)
+      .then(result => result.json());
   }
 }
