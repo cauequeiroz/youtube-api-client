@@ -11,8 +11,8 @@ export default class YoutubeAPI {
   }
 
   getSearchResultsFor(query) {
-    const result = HttpRequest.to(`${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`);
+    const url = `${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`;
 
-    return result;
+    return HttpRequest.to(url);
   }
 }
