@@ -66,7 +66,7 @@ describe('YoutubeAPI', () => {
 
     it('should call the fetch function with the right url', () => {
       youtube.getSearchResultsFor('Paramore');
-      expect(stubedFetch).to.have.been.calledWith('https://www.googleapis.com/youtube/v3/search?part=snippet&key=foo&q=Paramore');
+      expect(stubedFetch).to.have.been.calledWith('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=foo&q=Paramore');
     });
 
     it('should return a simple json from the raw json', () => {

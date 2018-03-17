@@ -7,7 +7,7 @@ export default class YoutubeAPI {
   }
 
   getSearchResultsFor(query) {
-    const url = `${this.apiUrl}/search?part=snippet&key=${this.apiKey}&q=${query}`;
+    const url = `${this.apiUrl}/search?part=snippet&type=video&key=${this.apiKey}&q=${query}`;
 
     const rawToVideo = raw => ({
       id: raw.id.videoId,
