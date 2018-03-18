@@ -27,6 +27,9 @@
     "lines": 80,
     "check-coverage": true
   },
+  "files": [
+    "dist"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cauequeiroz/youtube-api-client.git"
