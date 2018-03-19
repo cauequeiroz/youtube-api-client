@@ -4,10 +4,10 @@
   "description": "A simple client to work with Youtube API.",
   "main": "index.js",
   "scripts": {
-    "clear": "rimraf dist",
-    "build": "./node_modules/.bin/webpack --output-filename youtube-api-client.js",
-    "build:min": "./node_modules/.bin/webpack --output-filename youtube-api-client.min.js -p",
-    "build:all": "npm run clear && npm run build && npm run build:min",
+    "build:es6": "./node_modules/.bin/babel --out-dir lib src",
+    "build:umd": "./node_modules/.bin/webpack --output-filename youtube-api-client.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename youtube-api-client.min.js -p",
+    "build": "rimraf {lib,dist} && npm run build:es6 && npm run build:umd && npm run build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "test": "./node_modules/.bin/mocha test/**/*.spec.js --require babel-register",
     "test:tdd": "npm run test -- --watch",
@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/cauequeiroz/youtube-api-client#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",

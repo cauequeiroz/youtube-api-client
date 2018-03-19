@@ -1,1 +1,1 @@
-module.exports = require('./src/YoutubeAPI').default;
+module.exports = require('./lib/YoutubeAPI').default;
