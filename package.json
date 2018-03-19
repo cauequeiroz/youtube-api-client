@@ -28,7 +28,8 @@
     "check-coverage": true
   },
   "files": [
-    "dist"
+    "dist",
+    "lib"
   ],
   "repository": {
     "type": "git",
